@@ -7,17 +7,11 @@
 >
 > This agent does the first 90% automatically and hands a human a queue of pre-drafted,
 > pre-classified replies to approve in one click. **Nothing sends without a human approving it.**
-
----
-## Walkthrough Video
-
-[Email-agent.zip](https://github.com/user-attachments/files/32105689/Email-agent.zip)
+<img width="3405" height="1215" alt="Main-dashboard" src="https://github.com/user-attachments/assets/134724f2-740e-4ecb-8b38-ae770b8152fc" />
 
 
+--- 
 
-
-
----
 
 ## Status
 
