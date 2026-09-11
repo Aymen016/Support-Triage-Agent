@@ -1,0 +1,217 @@
+"""
+Writes 50 fixture support emails to ingest/fixtures/*.json and a combined
+ingest/../eval/testset.json for Phase 7.
+
+Run: python -m ingest.generate_fixtures
+Checkpoint (Phase 1): 50 fixtures, at least 10 deliberately awkward.
+
+Distribution (roughly matching the plan):
+  urgent (service down / payment failed / angry customer): 15
+  routine how-to / billing / order-status: 15
+  sales enquiries misfiled as support: 5
+  spam / automated noise: 5
+  multi-issue emails: 4
+  vague ones: 3
+  non-English / badly written: 3 -> counted in "awkward"
+Total: 50. Awkward ones (vague + non-English/badly-written + a couple of the
+multi-issue/thread-reply ones) comfortably clear the 10-minimum.
+"""
+import json
+from pathlib import Path
+
+FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
+TESTSET_PATH = Path(__file__).resolve().parent.parent / "eval" / "testset.json"
+
+FIXTURES = [
+    # ---- Urgent: service down (5) ----
+    {"id": "em_001", "from": "priya.shah@northgate-retail.com", "subject": "URGENT — checkout is completely down",
+     "body": "Our storefront checkout has been throwing a 500 error for the last 40 minutes. We are losing sales every minute this is down. Please escalate immediately, this is costing us real money.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+    {"id": "em_002", "from": "devops@lumen-analytics.io", "subject": "API returning 503 since ~14:20 UTC",
+     "body": "All calls to /v1/ingest are returning 503. Status page shows nothing. This is blocking our production pipeline. Need an ETA or a workaround ASAP.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+    {"id": "em_003", "from": "ops@fernwood-clinic.com", "subject": "Patient portal login is down for everyone",
+     "body": "None of our staff can log into the patient portal this morning. We have patients waiting. This is urgent, please call me at the number on file.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+    {"id": "em_004", "from": "m.oduya@brightpath-logistics.com", "subject": "Site down — 502 bad gateway everywhere",
+     "body": "Every page on our dashboard shows a 502 error. Started about 20 minutes ago. Our drivers can't see their routes. Please treat this as critical.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+    {"id": "em_005", "from": "hello@tinyseed-bakery.com", "subject": "Whole website is throwing errors right now",
+     "body": "Getting 'internal server error' on every single page, including checkout. Customers are emailing us confused. Please help fast, we're a small shop and this is our busiest hour.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+
+    # ---- Urgent: payment failed (5) ----
+    {"id": "em_006", "from": "accounts@harrow-consulting.com", "subject": "Payment failed and account got suspended",
+     "body": "Our card on file expired and now our whole workspace is locked out mid-project. We need this reactivated today, we have a client deadline this afternoon.",
+     "expected": {"category": "billing", "urgency": "high", "should_escalate": True}},
+    {"id": "em_007", "from": "finance@westline-media.com", "subject": "Charged twice for the same invoice",
+     "body": "We were double charged $1,240 on invoice INV-3391. This needs to be refunded immediately, our finance team already flagged the discrepancy internally.",
+     "expected": {"category": "billing", "urgency": "high", "should_escalate": True}},
+    {"id": "em_008", "from": "r.tan@pixelforge-studio.com", "subject": "URGENT: card declined, project export blocked",
+     "body": "Payment failed on renewal and now I can't export any of my client's project files. I have a deadline in 3 hours. Please unlock this or tell me how to pay manually right now.",
+     "expected": {"category": "billing", "urgency": "high", "should_escalate": True}},
+    {"id": "em_009", "from": "billing@saltmarsh-farms.com", "subject": "Payment failed 3 times, account paused, need help now",
+     "body": "Your system says my payment failed three times and paused my account. I updated the card but it's still showing paused. This is affecting our order processing today.",
+     "expected": {"category": "billing", "urgency": "high", "should_escalate": True}},
+    {"id": "em_010", "from": "j.oyelaran@driftwood-legal.com", "subject": "Refund request — over $500, need this resolved today",
+     "body": "We were billed for a plan we cancelled two months ago, total $612. I need this refunded today as we're closing our books this week. This is urgent for us.",
+     "expected": {"category": "billing", "urgency": "high", "should_escalate": True}},
+
+    # ---- Urgent: angry customer (5) ----
+    {"id": "em_011", "from": "carla.jimenez88@gmail.com", "subject": "This is absolutely unacceptable",
+     "body": "I have emailed THREE times about my broken order and gotten nothing but silence. This is the worst customer service I have ever experienced. Fix this now or I am disputing the charge and telling everyone I know.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+    {"id": "em_012", "from": "d.hollis@northfield-realty.com", "subject": "Extremely frustrated — third time reporting this bug",
+     "body": "This is the third time I'm reporting the same sync bug and nobody has fixed it. My team is losing hours every week to this. I am seriously considering cancelling our whole contract.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+    {"id": "em_013", "from": "s.okafor22@yahoo.com", "subject": "Furious — you charged me after I cancelled",
+     "body": "I cancelled my subscription last month and you charged me anyway. I am furious. Refund me immediately and confirm in writing that I will not be charged again.",
+     "expected": {"category": "billing", "urgency": "high", "should_escalate": True}},
+    {"id": "em_014", "from": "t.batra@ridgeline-consulting.com", "subject": "Not okay — data disappeared overnight",
+     "body": "I logged in this morning and an entire project's worth of data is just gone. No warning, nothing. This is honestly infuriating given what we pay for this service. I need answers today.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+    {"id": "em_015", "from": "l.marsh@ceramichouse.co", "subject": "Beyond disappointed in this support experience",
+     "body": "I've been waiting 5 days for a response about my broken integration. Beyond disappointed. If I don't hear back today I'm switching to a competitor and leaving a review about it.",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+
+    # ---- Routine: how-to / password / order status / billing questions (15) ----
+    {"id": "em_016", "from": "newuser2024@outlook.com", "subject": "How do I reset my password?",
+     "body": "Hi, I forgot my password and the reset email never arrived. Can you help me get back into my account?",
+     "expected": {"category": "how_to", "urgency": "low", "should_escalate": False}},
+    {"id": "em_017", "from": "kevin.wu.design@gmail.com", "subject": "Where's my order?",
+     "body": "I ordered on the 3rd (order #A-8823) and haven't gotten a shipping confirmation yet. Can you check the status for me?",
+     "expected": {"category": "how_to", "urgency": "low", "should_escalate": False}},
+    {"id": "em_018", "from": "amanda.f@brightleaf-yoga.com", "subject": "How do I add a teammate to our workspace?",
+     "body": "We just upgraded to the team plan. Where do I go to invite my two colleagues? Couldn't find it in settings.",
+     "expected": {"category": "how_to", "urgency": "low", "should_escalate": False}},
+    {"id": "em_019", "from": "info@ridgetop-outfitters.com", "subject": "Question about my last invoice",
+     "body": "Our invoice #INV-2245 shows a proration charge I don't understand. Could someone explain what that line item is for?",
+     "expected": {"category": "billing", "urgency": "low", "should_escalate": False}},
+    {"id": "em_020", "from": "grace.oduya@hotmail.com", "subject": "How to export my data",
+     "body": "I'd like to download all my data before my trial ends. Is there a way to export everything as a CSV or similar?",
+     "expected": {"category": "how_to", "urgency": "low", "should_escalate": False}},
+    {"id": "em_021", "from": "office@millbrook-dental.com", "subject": "Can I change my billing date?",
+     "body": "Our billing renews on the 30th but we'd prefer the 1st to match our accounting cycle. Is that something you can adjust?",
+     "expected": {"category": "billing", "urgency": "low", "should_escalate": False}},
+    {"id": "em_022", "from": "t.reyes@sundowner-cafe.com", "subject": "How do I cancel my subscription",
+     "body": "We're closing this location and won't need the service anymore. What's the process to cancel without losing our order history?",
+     "expected": {"category": "how_to", "urgency": "medium", "should_escalate": False}},
+    {"id": "em_023", "from": "j.lindqvist@nordicwool.se", "subject": "Where is my order — it's been 2 weeks",
+     "body": "Order #NW-1187 was placed two weeks ago and tracking hasn't updated since day 3. Getting a bit worried at this point, can you look into it?",
+     "expected": {"category": "how_to", "urgency": "medium", "should_escalate": False}},
+    {"id": "em_024", "from": "hannah.p@fieldnote-studio.com", "subject": "Update contact email on account",
+     "body": "I need to update the email address associated with our account before the old one gets deactivated by our IT team next week. How do I do that?",
+     "expected": {"category": "how_to", "urgency": "low", "should_escalate": False}},
+    {"id": "em_025", "from": "d.okonkwo@bluecrest-realty.com", "subject": "Question about refund policy",
+     "body": "If we cancel mid-cycle, do we get a prorated refund for the unused days, or does access just continue until the period ends?",
+     "expected": {"category": "billing", "urgency": "low", "should_escalate": False}},
+    {"id": "em_026", "from": "wei.chen.photog@gmail.com", "subject": "How to reset 2FA after losing my phone",
+     "body": "I lost my phone and can't get the 2FA codes anymore. What's the recovery process to get back into my account?",
+     "expected": {"category": "how_to", "urgency": "medium", "should_escalate": False}},
+    {"id": "em_027", "from": "accounts@hearthstone-books.com", "subject": "Card on file needs updating",
+     "body": "Our old card expires this month. Where in settings do we update the payment method before the next billing cycle hits?",
+     "expected": {"category": "billing", "urgency": "low", "should_escalate": False}},
+    {"id": "em_028", "from": "p.singh@lotusleaf-yoga.com", "subject": "How do I download past invoices",
+     "body": "Need last quarter's invoices for our bookkeeper. Where can I find a downloadable PDF for each one?",
+     "expected": {"category": "billing", "urgency": "low", "should_escalate": False}},
+    {"id": "em_029", "from": "m.dubois@atelierfleur.fr", "subject": "Order status check",
+     "body": "Just checking on order #AF-552 placed last week, want to make sure it's on track before a client event on Friday.",
+     "expected": {"category": "how_to", "urgency": "medium", "should_escalate": False}},
+    {"id": "em_030", "from": "contact@brambleandco.com", "subject": "How does the free trial work exactly?",
+     "body": "Trying to understand if we're billed automatically when the trial ends or if we need to actively upgrade. Want to avoid a surprise charge.",
+     "expected": {"category": "how_to", "urgency": "low", "should_escalate": False}},
+
+    # ---- Sales enquiries misfiled as support (5) ----
+    {"id": "em_031", "from": "c.mercer@fieldstone-group.com", "subject": "Pricing for 50+ seats",
+     "body": "We're evaluating your product for a 50-person rollout next quarter. Could someone send over enterprise pricing and let us know if a demo is possible?",
+     "expected": {"category": "sales", "urgency": "low", "should_escalate": False}},
+    {"id": "em_032", "from": "info@harborlight-agency.com", "subject": "Interested in the enterprise plan",
+     "body": "We currently use a competitor but are unhappy with their support. Can someone from sales reach out about switching and what the enterprise plan includes?",
+     "expected": {"category": "sales", "urgency": "low", "should_escalate": False}},
+    {"id": "em_033", "from": "purchasing@ironclad-manufacturing.com", "subject": "Requesting a quote and W9",
+     "body": "Our procurement team needs a formal quote and your W9 to process a purchase order for next fiscal year. Who should I coordinate with?",
+     "expected": {"category": "sales", "urgency": "low", "should_escalate": False}},
+    {"id": "em_034", "from": "founder@nestlingapp.com", "subject": "Can we get a demo before committing?",
+     "body": "We're a 12-person startup comparing a few tools. Would love a live demo focused on the API and integrations before we make a decision.",
+     "expected": {"category": "sales", "urgency": "low", "should_escalate": False}},
+    {"id": "em_035", "from": "ops.lead@verdant-supply.co", "subject": "Volume discount for annual plan?",
+     "body": "Is there a discount available if we commit to an annual contract across our whole org (roughly 30 seats)? Would like to talk to someone before renewing our current tool.",
+     "expected": {"category": "sales", "urgency": "low", "should_escalate": False}},
+
+    # ---- Spam / automated noise (5) ----
+    {"id": "em_036", "from": "promo@dealsblastnow.biz", "subject": "You've WON a $500 gift card!!!",
+     "body": "Congratulations!! You have been selected to receive a $500 gift card. Click here now to claim before this limited time offer expires!",
+     "expected": {"category": "spam", "urgency": "low", "should_escalate": False}},
+    {"id": "em_037", "from": "no-reply@newsletter-roundup.net", "subject": "This week's top productivity hacks",
+     "body": "Here are 10 productivity hacks from around the web this week. Unsubscribe at the bottom of this email if you no longer wish to receive updates.",
+     "expected": {"category": "spam", "urgency": "low", "should_escalate": False}},
+    {"id": "em_038", "from": "billing-alert@secure-verify-now.info", "subject": "Your account will be suspended - verify now",
+     "body": "We detected unusual activity. Click here to verify your identity within 24 hours or your account will be permanently suspended.",
+     "expected": {"category": "spam", "urgency": "low", "should_escalate": False}},
+    {"id": "em_039", "from": "seo-services@rank1quick.com", "subject": "Improve your website ranking - 50% off today",
+     "body": "We noticed your website could use SEO improvements. Get 50% off our services today only. Reply to learn more about this limited time offer.",
+     "expected": {"category": "spam", "urgency": "low", "should_escalate": False}},
+    {"id": "em_040", "from": "updates@some-random-app.io", "subject": "Your weekly digest is here",
+     "body": "Here's what happened this week across your connected apps. This is an automated digest email. Manage preferences or unsubscribe anytime.",
+     "expected": {"category": "spam", "urgency": "low", "should_escalate": False}},
+
+    # ---- Multi-issue emails (4) ----
+    {"id": "em_041", "from": "s.andersen@brightline-consulting.dk", "subject": "Two problems: billing and a bug",
+     "body": "Two things: first, we were charged twice this month (invoice INV-771 and INV-772 look identical). Second, the export button on the dashboard has been throwing an error since yesterday. Could you look into both?",
+     "expected": {"category": "billing", "urgency": "high", "should_escalate": True}},
+    {"id": "em_042", "from": "r.okonjo@palmstreet-media.com", "subject": "Password issue and a question about seats",
+     "body": "I can't reset my password — the email never arrives even after 3 tries. Separately, once I'm back in, how do I add 2 more seats to our plan?",
+     "expected": {"category": "how_to", "urgency": "medium", "should_escalate": False}},
+    {"id": "em_043", "from": "m.laurent@atelier9.fr", "subject": "Refund + also the app crashed on me",
+     "body": "I'd like a refund for last month since we barely used the product. Also, separately, the mobile app crashed twice today when I tried to upload a file — not sure if related.",
+     "expected": {"category": "billing", "urgency": "medium", "should_escalate": True}},
+    {"id": "em_044", "from": "d.fontaine@westbridge-law.com", "subject": "Urgent bug + a general question",
+     "body": "Our documents aren't syncing between devices, which is urgent since we have a filing deadline tomorrow. On a separate note, is there a way to set default sharing permissions for new documents?",
+     "expected": {"category": "bug_report", "urgency": "high", "should_escalate": True}},
+
+    # ---- Vague ones (3) ----
+    {"id": "em_045", "from": "user48291@protonmail.com", "subject": "it's not working",
+     "body": "hey it just stopped working can u fix it",
+     "expected": {"category": "other", "urgency": "medium", "should_escalate": True}},
+    {"id": "em_046", "from": "quiet.observer@gmail.com", "subject": "Question",
+     "body": "hi, so I tried the thing again and it's still doing the same as before. any update?",
+     "expected": {"category": "other", "urgency": "low", "should_escalate": True}},
+    {"id": "em_047", "from": "b.marsh19@icloud.com", "subject": "(no subject)",
+     "body": "not sure who to ask but nothing loads anymore. thanks",
+     "expected": {"category": "bug_report", "urgency": "medium", "should_escalate": True}},
+
+    # ---- Non-English / badly written (2, to round out to 50 with the vague ones covering "awkward") ----
+    {"id": "em_048", "from": "m.tanaka@kaede-design.jp", "subject": "cannot login pls help",
+     "body": "sorry my english not so good. i try login many time but always error appear. password correct i think. website say try again later but same thing happen. please help me thank you very much",
+     "expected": {"category": "bug_report", "urgency": "medium", "should_escalate": True}},
+    {"id": "em_049", "from": "carlos.reyes.mx@gmail.com", "subject": "problema con mi pago",
+     "body": "hola, disculpen mi ingles no es muy bueno. mi tarjeta fue rechazada dos veces pero el dinero si salio de mi cuenta banco. necesito ayuda por favor es urgente para mi negocio",
+     "expected": {"category": "billing", "urgency": "high", "should_escalate": True}},
+
+    # ---- Reply in an existing thread, not a new issue (1, rounding to 50) ----
+    {"id": "em_050", "from": "priya.shah@northgate-retail.com", "subject": "Re: URGENT — checkout is completely down",
+     "body": "Thanks for the quick fix earlier — just confirming everything looks stable on our end now. Appreciate the fast turnaround, closing this out.",
+     "thread_id": "thread_em_001",
+     "expected": {"category": "other", "urgency": "low", "should_escalate": False}},
+]
+
+
+def main():
+    assert len(FIXTURES) == 50, f"expected 50 fixtures, got {len(FIXTURES)}"
+
+    FIXTURES_DIR.mkdir(parents=True, exist_ok=True)
+    for fx in FIXTURES:
+        out_path = FIXTURES_DIR / f"{fx['id']}.json"
+        with open(out_path, "w") as f:
+            json.dump(fx, f, indent=2)
+
+    TESTSET_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(TESTSET_PATH, "w") as f:
+        json.dump(FIXTURES, f, indent=2)
+
+    print(f"Wrote {len(FIXTURES)} fixtures to {FIXTURES_DIR}")
+    print(f"Wrote combined eval set to {TESTSET_PATH}")
+
+
+if __name__ == "__main__":
+    main()
