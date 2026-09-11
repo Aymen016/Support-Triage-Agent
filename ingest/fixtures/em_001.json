@@ -1,0 +1,11 @@
+{
+  "id": "em_001",
+  "from": "priya.shah@northgate-retail.com",
+  "subject": "URGENT \u2014 checkout is completely down",
+  "body": "Our storefront checkout has been throwing a 500 error for the last 40 minutes. We are losing sales every minute this is down. Please escalate immediately, this is costing us real money.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}
