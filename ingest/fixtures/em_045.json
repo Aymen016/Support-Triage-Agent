@@ -1,0 +1,11 @@
+{
+  "id": "em_045",
+  "from": "user48291@protonmail.com",
+  "subject": "it's not working",
+  "body": "hey it just stopped working can u fix it",
+  "expected": {
+    "category": "other",
+    "urgency": "medium",
+    "should_escalate": true
+  }
+}

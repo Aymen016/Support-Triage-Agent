@@ -1,0 +1,11 @@
+{
+  "id": "em_032",
+  "from": "info@harborlight-agency.com",
+  "subject": "Interested in the enterprise plan",
+  "body": "We currently use a competitor but are unhappy with their support. Can someone from sales reach out about switching and what the enterprise plan includes?",
+  "expected": {
+    "category": "sales",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

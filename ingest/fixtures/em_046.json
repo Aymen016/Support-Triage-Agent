@@ -1,0 +1,11 @@
+{
+  "id": "em_046",
+  "from": "quiet.observer@gmail.com",
+  "subject": "Question",
+  "body": "hi, so I tried the thing again and it's still doing the same as before. any update?",
+  "expected": {
+    "category": "other",
+    "urgency": "low",
+    "should_escalate": true
+  }
+}

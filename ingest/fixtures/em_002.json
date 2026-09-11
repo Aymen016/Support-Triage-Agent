@@ -1,0 +1,11 @@
+{
+  "id": "em_002",
+  "from": "devops@lumen-analytics.io",
+  "subject": "API returning 503 since ~14:20 UTC",
+  "body": "All calls to /v1/ingest are returning 503. Status page shows nothing. This is blocking our production pipeline. Need an ETA or a workaround ASAP.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

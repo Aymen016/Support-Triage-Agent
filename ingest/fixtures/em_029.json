@@ -1,0 +1,11 @@
+{
+  "id": "em_029",
+  "from": "m.dubois@atelierfleur.fr",
+  "subject": "Order status check",
+  "body": "Just checking on order #AF-552 placed last week, want to make sure it's on track before a client event on Friday.",
+  "expected": {
+    "category": "how_to",
+    "urgency": "medium",
+    "should_escalate": false
+  }
+}

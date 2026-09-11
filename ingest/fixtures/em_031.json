@@ -1,0 +1,11 @@
+{
+  "id": "em_031",
+  "from": "c.mercer@fieldstone-group.com",
+  "subject": "Pricing for 50+ seats",
+  "body": "We're evaluating your product for a 50-person rollout next quarter. Could someone send over enterprise pricing and let us know if a demo is possible?",
+  "expected": {
+    "category": "sales",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

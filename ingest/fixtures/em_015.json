@@ -1,0 +1,11 @@
+{
+  "id": "em_015",
+  "from": "l.marsh@ceramichouse.co",
+  "subject": "Beyond disappointed in this support experience",
+  "body": "I've been waiting 5 days for a response about my broken integration. Beyond disappointed. If I don't hear back today I'm switching to a competitor and leaving a review about it.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

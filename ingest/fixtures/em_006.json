@@ -1,0 +1,11 @@
+{
+  "id": "em_006",
+  "from": "accounts@harrow-consulting.com",
+  "subject": "Payment failed and account got suspended",
+  "body": "Our card on file expired and now our whole workspace is locked out mid-project. We need this reactivated today, we have a client deadline this afternoon.",
+  "expected": {
+    "category": "billing",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

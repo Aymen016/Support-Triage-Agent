@@ -1,0 +1,11 @@
+{
+  "id": "em_011",
+  "from": "carla.jimenez88@gmail.com",
+  "subject": "This is absolutely unacceptable",
+  "body": "I have emailed THREE times about my broken order and gotten nothing but silence. This is the worst customer service I have ever experienced. Fix this now or I am disputing the charge and telling everyone I know.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

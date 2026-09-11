@@ -1,0 +1,11 @@
+{
+  "id": "em_004",
+  "from": "m.oduya@brightpath-logistics.com",
+  "subject": "Site down \u2014 502 bad gateway everywhere",
+  "body": "Every page on our dashboard shows a 502 error. Started about 20 minutes ago. Our drivers can't see their routes. Please treat this as critical.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

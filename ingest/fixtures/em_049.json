@@ -1,0 +1,11 @@
+{
+  "id": "em_049",
+  "from": "carlos.reyes.mx@gmail.com",
+  "subject": "problema con mi pago",
+  "body": "hola, disculpen mi ingles no es muy bueno. mi tarjeta fue rechazada dos veces pero el dinero si salio de mi cuenta banco. necesito ayuda por favor es urgente para mi negocio",
+  "expected": {
+    "category": "billing",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

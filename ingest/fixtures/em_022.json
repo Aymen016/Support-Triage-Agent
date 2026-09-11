@@ -1,0 +1,11 @@
+{
+  "id": "em_022",
+  "from": "t.reyes@sundowner-cafe.com",
+  "subject": "How do I cancel my subscription",
+  "body": "We're closing this location and won't need the service anymore. What's the process to cancel without losing our order history?",
+  "expected": {
+    "category": "how_to",
+    "urgency": "medium",
+    "should_escalate": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "em_038",
+  "from": "billing-alert@secure-verify-now.info",
+  "subject": "Your account will be suspended - verify now",
+  "body": "We detected unusual activity. Click here to verify your identity within 24 hours or your account will be permanently suspended.",
+  "expected": {
+    "category": "spam",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

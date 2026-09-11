@@ -1,0 +1,11 @@
+{
+  "id": "em_003",
+  "from": "ops@fernwood-clinic.com",
+  "subject": "Patient portal login is down for everyone",
+  "body": "None of our staff can log into the patient portal this morning. We have patients waiting. This is urgent, please call me at the number on file.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

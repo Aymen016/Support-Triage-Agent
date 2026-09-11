@@ -1,0 +1,11 @@
+{
+  "id": "em_008",
+  "from": "r.tan@pixelforge-studio.com",
+  "subject": "URGENT: card declined, project export blocked",
+  "body": "Payment failed on renewal and now I can't export any of my client's project files. I have a deadline in 3 hours. Please unlock this or tell me how to pay manually right now.",
+  "expected": {
+    "category": "billing",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "em_039",
+  "from": "seo-services@rank1quick.com",
+  "subject": "Improve your website ranking - 50% off today",
+  "body": "We noticed your website could use SEO improvements. Get 50% off our services today only. Reply to learn more about this limited time offer.",
+  "expected": {
+    "category": "spam",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "em_021",
+  "from": "office@millbrook-dental.com",
+  "subject": "Can I change my billing date?",
+  "body": "Our billing renews on the 30th but we'd prefer the 1st to match our accounting cycle. Is that something you can adjust?",
+  "expected": {
+    "category": "billing",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "em_017",
+  "from": "kevin.wu.design@gmail.com",
+  "subject": "Where's my order?",
+  "body": "I ordered on the 3rd (order #A-8823) and haven't gotten a shipping confirmation yet. Can you check the status for me?",
+  "expected": {
+    "category": "how_to",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

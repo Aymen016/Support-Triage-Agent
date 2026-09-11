@@ -1,0 +1,11 @@
+{
+  "id": "em_012",
+  "from": "d.hollis@northfield-realty.com",
+  "subject": "Extremely frustrated \u2014 third time reporting this bug",
+  "body": "This is the third time I'm reporting the same sync bug and nobody has fixed it. My team is losing hours every week to this. I am seriously considering cancelling our whole contract.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

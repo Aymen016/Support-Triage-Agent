@@ -1,0 +1,11 @@
+{
+  "id": "em_013",
+  "from": "s.okafor22@yahoo.com",
+  "subject": "Furious \u2014 you charged me after I cancelled",
+  "body": "I cancelled my subscription last month and you charged me anyway. I am furious. Refund me immediately and confirm in writing that I will not be charged again.",
+  "expected": {
+    "category": "billing",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

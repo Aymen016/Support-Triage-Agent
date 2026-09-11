@@ -1,0 +1,11 @@
+{
+  "id": "em_019",
+  "from": "info@ridgetop-outfitters.com",
+  "subject": "Question about my last invoice",
+  "body": "Our invoice #INV-2245 shows a proration charge I don't understand. Could someone explain what that line item is for?",
+  "expected": {
+    "category": "billing",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

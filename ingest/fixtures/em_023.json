@@ -1,0 +1,11 @@
+{
+  "id": "em_023",
+  "from": "j.lindqvist@nordicwool.se",
+  "subject": "Where is my order \u2014 it's been 2 weeks",
+  "body": "Order #NW-1187 was placed two weeks ago and tracking hasn't updated since day 3. Getting a bit worried at this point, can you look into it?",
+  "expected": {
+    "category": "how_to",
+    "urgency": "medium",
+    "should_escalate": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "em_016",
+  "from": "newuser2024@outlook.com",
+  "subject": "How do I reset my password?",
+  "body": "Hi, I forgot my password and the reset email never arrived. Can you help me get back into my account?",
+  "expected": {
+    "category": "how_to",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

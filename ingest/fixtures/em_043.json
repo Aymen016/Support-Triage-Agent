@@ -1,0 +1,11 @@
+{
+  "id": "em_043",
+  "from": "m.laurent@atelier9.fr",
+  "subject": "Refund + also the app crashed on me",
+  "body": "I'd like a refund for last month since we barely used the product. Also, separately, the mobile app crashed twice today when I tried to upload a file \u2014 not sure if related.",
+  "expected": {
+    "category": "billing",
+    "urgency": "medium",
+    "should_escalate": true
+  }
+}

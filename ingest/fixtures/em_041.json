@@ -1,0 +1,11 @@
+{
+  "id": "em_041",
+  "from": "s.andersen@brightline-consulting.dk",
+  "subject": "Two problems: billing and a bug",
+  "body": "Two things: first, we were charged twice this month (invoice INV-771 and INV-772 look identical). Second, the export button on the dashboard has been throwing an error since yesterday. Could you look into both?",
+  "expected": {
+    "category": "billing",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

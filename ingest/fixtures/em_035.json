@@ -1,0 +1,11 @@
+{
+  "id": "em_035",
+  "from": "ops.lead@verdant-supply.co",
+  "subject": "Volume discount for annual plan?",
+  "body": "Is there a discount available if we commit to an annual contract across our whole org (roughly 30 seats)? Would like to talk to someone before renewing our current tool.",
+  "expected": {
+    "category": "sales",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

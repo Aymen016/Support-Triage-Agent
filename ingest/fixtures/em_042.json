@@ -1,0 +1,11 @@
+{
+  "id": "em_042",
+  "from": "r.okonjo@palmstreet-media.com",
+  "subject": "Password issue and a question about seats",
+  "body": "I can't reset my password \u2014 the email never arrives even after 3 tries. Separately, once I'm back in, how do I add 2 more seats to our plan?",
+  "expected": {
+    "category": "how_to",
+    "urgency": "medium",
+    "should_escalate": false
+  }
+}

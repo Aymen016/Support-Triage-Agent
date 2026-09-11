@@ -1,0 +1,11 @@
+{
+  "id": "em_048",
+  "from": "m.tanaka@kaede-design.jp",
+  "subject": "cannot login pls help",
+  "body": "sorry my english not so good. i try login many time but always error appear. password correct i think. website say try again later but same thing happen. please help me thank you very much",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "medium",
+    "should_escalate": true
+  }
+}

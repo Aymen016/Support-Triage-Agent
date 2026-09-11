@@ -1,0 +1,11 @@
+{
+  "id": "em_036",
+  "from": "promo@dealsblastnow.biz",
+  "subject": "You've WON a $500 gift card!!!",
+  "body": "Congratulations!! You have been selected to receive a $500 gift card. Click here now to claim before this limited time offer expires!",
+  "expected": {
+    "category": "spam",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

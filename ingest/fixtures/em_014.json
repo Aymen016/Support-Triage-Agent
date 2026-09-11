@@ -1,0 +1,11 @@
+{
+  "id": "em_014",
+  "from": "t.batra@ridgeline-consulting.com",
+  "subject": "Not okay \u2014 data disappeared overnight",
+  "body": "I logged in this morning and an entire project's worth of data is just gone. No warning, nothing. This is honestly infuriating given what we pay for this service. I need answers today.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

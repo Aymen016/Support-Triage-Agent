@@ -1,0 +1,11 @@
+{
+  "id": "em_027",
+  "from": "accounts@hearthstone-books.com",
+  "subject": "Card on file needs updating",
+  "body": "Our old card expires this month. Where in settings do we update the payment method before the next billing cycle hits?",
+  "expected": {
+    "category": "billing",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

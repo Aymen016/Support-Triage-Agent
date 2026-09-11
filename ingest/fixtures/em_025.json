@@ -1,0 +1,11 @@
+{
+  "id": "em_025",
+  "from": "d.okonkwo@bluecrest-realty.com",
+  "subject": "Question about refund policy",
+  "body": "If we cancel mid-cycle, do we get a prorated refund for the unused days, or does access just continue until the period ends?",
+  "expected": {
+    "category": "billing",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

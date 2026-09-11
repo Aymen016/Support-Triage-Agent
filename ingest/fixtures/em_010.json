@@ -1,0 +1,11 @@
+{
+  "id": "em_010",
+  "from": "j.oyelaran@driftwood-legal.com",
+  "subject": "Refund request \u2014 over $500, need this resolved today",
+  "body": "We were billed for a plan we cancelled two months ago, total $612. I need this refunded today as we're closing our books this week. This is urgent for us.",
+  "expected": {
+    "category": "billing",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

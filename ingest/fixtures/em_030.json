@@ -1,0 +1,11 @@
+{
+  "id": "em_030",
+  "from": "contact@brambleandco.com",
+  "subject": "How does the free trial work exactly?",
+  "body": "Trying to understand if we're billed automatically when the trial ends or if we need to actively upgrade. Want to avoid a surprise charge.",
+  "expected": {
+    "category": "how_to",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "em_018",
+  "from": "amanda.f@brightleaf-yoga.com",
+  "subject": "How do I add a teammate to our workspace?",
+  "body": "We just upgraded to the team plan. Where do I go to invite my two colleagues? Couldn't find it in settings.",
+  "expected": {
+    "category": "how_to",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

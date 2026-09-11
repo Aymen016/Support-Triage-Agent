@@ -1,0 +1,11 @@
+{
+  "id": "em_034",
+  "from": "founder@nestlingapp.com",
+  "subject": "Can we get a demo before committing?",
+  "body": "We're a 12-person startup comparing a few tools. Would love a live demo focused on the API and integrations before we make a decision.",
+  "expected": {
+    "category": "sales",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

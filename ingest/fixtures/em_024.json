@@ -1,0 +1,11 @@
+{
+  "id": "em_024",
+  "from": "hannah.p@fieldnote-studio.com",
+  "subject": "Update contact email on account",
+  "body": "I need to update the email address associated with our account before the old one gets deactivated by our IT team next week. How do I do that?",
+  "expected": {
+    "category": "how_to",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

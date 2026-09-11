@@ -1,0 +1,12 @@
+{
+  "id": "em_050",
+  "from": "priya.shah@northgate-retail.com",
+  "subject": "Re: URGENT \u2014 checkout is completely down",
+  "body": "Thanks for the quick fix earlier \u2014 just confirming everything looks stable on our end now. Appreciate the fast turnaround, closing this out.",
+  "thread_id": "thread_em_001",
+  "expected": {
+    "category": "other",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

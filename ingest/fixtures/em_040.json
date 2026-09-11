@@ -1,0 +1,11 @@
+{
+  "id": "em_040",
+  "from": "updates@some-random-app.io",
+  "subject": "Your weekly digest is here",
+  "body": "Here's what happened this week across your connected apps. This is an automated digest email. Manage preferences or unsubscribe anytime.",
+  "expected": {
+    "category": "spam",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

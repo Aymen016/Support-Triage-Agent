@@ -1,0 +1,11 @@
+{
+  "id": "em_037",
+  "from": "no-reply@newsletter-roundup.net",
+  "subject": "This week's top productivity hacks",
+  "body": "Here are 10 productivity hacks from around the web this week. Unsubscribe at the bottom of this email if you no longer wish to receive updates.",
+  "expected": {
+    "category": "spam",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

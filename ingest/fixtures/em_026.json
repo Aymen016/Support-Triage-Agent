@@ -1,0 +1,11 @@
+{
+  "id": "em_026",
+  "from": "wei.chen.photog@gmail.com",
+  "subject": "How to reset 2FA after losing my phone",
+  "body": "I lost my phone and can't get the 2FA codes anymore. What's the recovery process to get back into my account?",
+  "expected": {
+    "category": "how_to",
+    "urgency": "medium",
+    "should_escalate": false
+  }
+}

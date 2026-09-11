@@ -1,0 +1,11 @@
+{
+  "id": "em_007",
+  "from": "finance@westline-media.com",
+  "subject": "Charged twice for the same invoice",
+  "body": "We were double charged $1,240 on invoice INV-3391. This needs to be refunded immediately, our finance team already flagged the discrepancy internally.",
+  "expected": {
+    "category": "billing",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

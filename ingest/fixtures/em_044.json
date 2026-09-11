@@ -1,0 +1,11 @@
+{
+  "id": "em_044",
+  "from": "d.fontaine@westbridge-law.com",
+  "subject": "Urgent bug + a general question",
+  "body": "Our documents aren't syncing between devices, which is urgent since we have a filing deadline tomorrow. On a separate note, is there a way to set default sharing permissions for new documents?",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

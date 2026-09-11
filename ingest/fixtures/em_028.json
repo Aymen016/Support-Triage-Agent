@@ -1,0 +1,11 @@
+{
+  "id": "em_028",
+  "from": "p.singh@lotusleaf-yoga.com",
+  "subject": "How do I download past invoices",
+  "body": "Need last quarter's invoices for our bookkeeper. Where can I find a downloadable PDF for each one?",
+  "expected": {
+    "category": "billing",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "em_009",
+  "from": "billing@saltmarsh-farms.com",
+  "subject": "Payment failed 3 times, account paused, need help now",
+  "body": "Your system says my payment failed three times and paused my account. I updated the card but it's still showing paused. This is affecting our order processing today.",
+  "expected": {
+    "category": "billing",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

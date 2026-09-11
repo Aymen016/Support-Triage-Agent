@@ -1,0 +1,11 @@
+{
+  "id": "em_020",
+  "from": "grace.oduya@hotmail.com",
+  "subject": "How to export my data",
+  "body": "I'd like to download all my data before my trial ends. Is there a way to export everything as a CSV or similar?",
+  "expected": {
+    "category": "how_to",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}

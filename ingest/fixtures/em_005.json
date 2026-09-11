@@ -1,0 +1,11 @@
+{
+  "id": "em_005",
+  "from": "hello@tinyseed-bakery.com",
+  "subject": "Whole website is throwing errors right now",
+  "body": "Getting 'internal server error' on every single page, including checkout. Customers are emailing us confused. Please help fast, we're a small shop and this is our busiest hour.",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "high",
+    "should_escalate": true
+  }
+}

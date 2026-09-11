@@ -1,0 +1,11 @@
+{
+  "id": "em_047",
+  "from": "b.marsh19@icloud.com",
+  "subject": "(no subject)",
+  "body": "not sure who to ask but nothing loads anymore. thanks",
+  "expected": {
+    "category": "bug_report",
+    "urgency": "medium",
+    "should_escalate": true
+  }
+}

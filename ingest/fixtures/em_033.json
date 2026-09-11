@@ -1,0 +1,11 @@
+{
+  "id": "em_033",
+  "from": "purchasing@ironclad-manufacturing.com",
+  "subject": "Requesting a quote and W9",
+  "body": "Our procurement team needs a formal quote and your W9 to process a purchase order for next fiscal year. Who should I coordinate with?",
+  "expected": {
+    "category": "sales",
+    "urgency": "low",
+    "should_escalate": false
+  }
+}
