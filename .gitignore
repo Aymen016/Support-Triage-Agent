@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+data/sheet_log.csv
+data/triage.db
+data/google_token.json
+credentials.json
+node_modules/
+frontend/dist/
+.DS_Store
