@@ -1,0 +1,42 @@
+[
+  {
+    "article_id": "kb_001",
+    "title": "How to reset your password",
+    "content": "Go to the login page and click 'Forgot password'. Enter the email address on your account and we'll send a reset link within a few minutes. The link expires after 30 minutes. If you don't see the email, check your spam folder before requesting another one."
+  },
+  {
+    "article_id": "kb_002",
+    "title": "Where is my order? Tracking and delivery times",
+    "content": "Standard shipping takes 3-5 business days within the country and 7-14 days internationally. You can track your order from the 'Orders' tab in your account using the order ID emailed to you at checkout. If tracking hasn't updated in 5+ business days, contact support with your order ID."
+  },
+  {
+    "article_id": "kb_003",
+    "title": "Requesting a refund",
+    "content": "Refunds can be requested within 30 days of purchase from the Billing tab, or by replying to your original receipt email. Refunds are issued to the original payment method and typically appear within 5-10 business days. Refunds over $500 require manual review by a team member."
+  },
+  {
+    "article_id": "kb_004",
+    "title": "Canceling your subscription",
+    "content": "You can cancel anytime from Account Settings > Subscription > Cancel Plan. Cancellation takes effect at the end of the current billing period; you keep access until then. There is no cancellation fee. Annual plans are non-refundable for the unused portion unless required by local law."
+  },
+  {
+    "article_id": "kb_005",
+    "title": "Payment failed — what to do",
+    "content": "Payment failures are usually caused by an expired card, insufficient funds, or a bank decline for security reasons. Update your card under Billing > Payment Method and we'll automatically retry the charge within 24 hours. Repeated failures may pause your account after 3 attempts."
+  },
+  {
+    "article_id": "kb_006",
+    "title": "Reporting a bug or outage",
+    "content": "Check our status page first for known outages. If nothing is listed, include your account email, a description of the issue, steps to reproduce, and a screenshot if possible. Our team prioritizes reports affecting checkout, login, or payment processing as high severity."
+  },
+  {
+    "article_id": "kb_007",
+    "title": "Updating account and billing email",
+    "content": "Change your account email from Account Settings > Profile. Changing your billing email (where invoices are sent) is a separate field under Billing > Invoice Settings. You'll need to confirm the new email address before the change takes effect."
+  },
+  {
+    "article_id": "kb_008",
+    "title": "Enterprise plans and custom pricing",
+    "content": "Enterprise plans include SSO, dedicated support, and custom contract terms, priced per seat with annual billing. Reach out to sales for a quote and a demo — this is handled by the sales team, not support, since it involves contract negotiation."
+  }
+]
