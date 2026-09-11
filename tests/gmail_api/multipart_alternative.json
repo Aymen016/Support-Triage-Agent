@@ -1,0 +1,23 @@
+{
+  "id": "msg_multipart_1",
+  "threadId": "thread_2",
+  "internalDate": "1700000100000",
+  "payload": {
+    "headers": [
+      {"name": "From", "value": "Jane Doe <jane@example.com>"},
+      {"name": "Subject", "value": "Cannot reset my password"},
+      {"name": "Message-ID", "value": "<def456@mail.example.com>"}
+    ],
+    "mimeType": "multipart/alternative",
+    "parts": [
+      {
+        "mimeType": "text/plain",
+        "body": {"data": "SGksCgpJIGZvcmdvdCBteSBwYXNzd29yZCBhbmQgdGhlIHJlc2V0IGxpbmsgaXNuJ3Qgd29ya2luZy4KClRoYW5rcywKSmFuZQ"}
+      },
+      {
+        "mimeType": "text/html",
+        "body": {"data": "PHA-SGksPC9wPjxwPkkgZm9yZ290IG15IHBhc3N3b3JkIGFuZCB0aGUgcmVzZXQgbGluayBpc24ndCB3b3JraW5nLjwvcD48cD5UaGFua3MsPGJyPkphbmU8L3A-"}
+      }
+    ]
+  }
+}

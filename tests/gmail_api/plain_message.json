@@ -1,0 +1,14 @@
+{
+  "id": "msg_plain_1",
+  "threadId": "thread_1",
+  "internalDate": "1700000000000",
+  "payload": {
+    "headers": [
+      {"name": "From", "value": "Jane Doe <jane@example.com>"},
+      {"name": "Subject", "value": "Cannot reset my password"},
+      {"name": "Message-ID", "value": "<abc123@mail.example.com>"}
+    ],
+    "mimeType": "text/plain",
+    "body": {"data": "SGksCgpJIGZvcmdvdCBteSBwYXNzd29yZCBhbmQgdGhlIHJlc2V0IGxpbmsgaXNuJ3Qgd29ya2luZy4KClRoYW5rcywKSmFuZQ"}
+  }
+}
