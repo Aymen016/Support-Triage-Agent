@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/*
+  Design tokens for the Support Triage Agent dashboard.
+
+  Brief (from the project plan): dense, calm, keyboard-driven — an internal
+  ops tool someone stares at for 3 hours a day, not a landing page. Near-white
+  background, ONE accent colour, and a small semantic set (red/amber/green)
+  reserved for urgency only — never used decoratively elsewhere.
+*/
+@theme {
+  /* surfaces */
+  --color-bg: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F4F4F5;
+  --color-surface-sunken: #F8F9FB;
+  --color-border: #E4E4E7;
+  --color-border-strong: #D4D4D8;
+
+  /* text */
+  --color-ink: #18181B;
+  --color-ink-muted: #6B7280;
+  --color-ink-faint: #A1A1AA;
+
+  /* the one accent — steel-cobalt blue, used for actions, links, focus, active nav */
+  --color-accent: #2F5FAD;
+  --color-accent-hover: #274E8F;
+  --color-accent-soft: #EAF0F9;
+
+  /* semantic — urgency ONLY */
+  --color-urgent-high: #DC4C3E;
+  --color-urgent-high-soft: #FCEAE8;
+  --color-urgent-medium: #D97706;
+  --color-urgent-medium-soft: #FDF3E3;
+  --color-urgent-low: #15803D;
+  --color-urgent-low-soft: #E9F5EE;
+
+  /* AI-generated / AI-analyzed content marker — used sparingly (a badge, an
+     icon), never as a general decorative color */
+  --color-ai: #7C3AED;
+  --color-ai-soft: #F5F3FF;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/*
+  Dark mode — a deliberate palette, not an inversion. Deeper charcoal
+  surfaces (not pure black), slightly desaturated/lightened accent and
+  status colors for correct contrast on dark backgrounds. Applied via
+  data-theme="dark" on <html>, set synchronously in index.html (system
+  preference by default) and toggled by src/lib/useTheme.ts.
+*/
+:root[data-theme="dark"] {
+  --color-bg: #0B0D12;
+  --color-surface: #14161C;
+  --color-surface-hover: #1D2029;
+  --color-surface-sunken: #0F1116;
+  --color-border: #262A33;
+  --color-border-strong: #3A3F4B;
+
+  --color-ink: #F3F4F6;
+  --color-ink-muted: #9CA3AF;
+  --color-ink-faint: #6B7280;
+
+  --color-accent: #7C9CEB;
+  --color-accent-hover: #93AEF0;
+  --color-accent-soft: #1C2740;
+
+  --color-urgent-high: #F87171;
+  --color-urgent-high-soft: #3A1F1F;
+  --color-urgent-medium: #FBBF24;
+  --color-urgent-medium-soft: #3A2E14;
+  --color-urgent-low: #4ADE80;
+  --color-urgent-low-soft: #1B3327;
+
+  --color-ai: #B8A2F9;
+  --color-ai-soft: #241E3B;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* thin, quiet scrollbars — the OS default is visually loud next to the
+   near-white/one-accent palette the rest of this dashboard commits to */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-strong);
+  border-radius: 8px;
+  border: 2px solid var(--color-bg);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-ink-faint);
+}
+
+/* one deliberate motion: a slow pulse for the "agent working" indicator — nothing else animates */
+@keyframes agent-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.animate-agent-pulse {
+  animation: agent-pulse 1.4s ease-in-out infinite;
+}
+
+/* visible keyboard focus everywhere, no exceptions */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* toast entrance — subtle, matches the "fast and quiet" motion rule */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-toast-in {
+  animation: toast-in 0.16s ease-out;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-modal-in {
+  animation: modal-in 0.14s ease-out;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-skeleton {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-agent-pulse, .animate-toast-in, .animate-modal-in, .animate-skeleton { animation: none; }
+}
